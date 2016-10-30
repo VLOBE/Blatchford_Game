@@ -1,3 +1,8 @@
+/* 
+* This is so small at the moment because we still need
+* to figure out what game states we need to track
+*/
+
 using UnityEngine;
 using System.Collections;
 
