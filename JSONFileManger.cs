@@ -1,3 +1,4 @@
+// ***************************** Blatchford Devolpment Team **************************
 using System;
 using UnityEngine;
 using System.Collections.Generic;
@@ -17,11 +18,11 @@ namespace DataBase
         /// </summary>
         public static double GetValueInt(string path, string objectName, int group, string elementName)
         {
-            if(!File.Exists(Application.dataPath + "\" + path) {
-                Debug.Log("There no File Called {0}", Application.dataPath + "\" + path); 
+            if(!File.Exists(Application.dataPath + "\\" + path) {
+                Debug.Log("There no File Called {0}", Application.dataPath + "\\" + path); 
                 return 0;
             }else {
-                jsonString = File.ReadAllText(Application.dataPath + "\" + path);
+                jsonString = File.ReadAllText(Application.dataPath + "\\" + path);
                 elementData = JsonMapper.ToObject(jsonString);
                 return (double)elementData[objectName][group][elementName];
             }
@@ -32,11 +33,11 @@ namespace DataBase
         /// </summary>
         public static string GetValueString(string path, string objectName, int group, string elementName)
         {
-            if(!File.Exists(Application.dataPath + "\" + path) {
+            if(!File.Exists(Application.dataPath + "\\" + path) {
                 Debug.Log("There no File Called {0}", Application.dataPath + path); 
                 return null;
             }else {
-                jsonString = File.ReadAllText(Application.dataPath + "\" + path);
+                jsonString = File.ReadAllText(Application.dataPath + "\\" + path);
                 elementData = JsonMapper.ToObject(jsonString);
                 return elementData[objectName][group][elementName].ToString();
             }
@@ -50,14 +51,14 @@ namespace DataBase
         public static void AddDataObject(string path,object objectName)
         {
             elementData = JsonMapper.ToJson(objectName);
-            if (File.Exists(Application.dataPath + "\" + path))
+            if (File.Exists(Application.dataPath + "\\" + path))
             {
-                File.WriteAllText(Application.dataPath + "\" + path, elementData.ToString);
+                File.WriteAllText(Application.dataPath + "\\" + path, elementData.ToString);
             }
             else
             {
                 Debug.Log("There no File Called {0}, Creating new one !", Application.dataPath + path); 
-                File.Create(Application.dataPath + "\" + path);
+                File.Create(Application.dataPath + "\\" + path);
             }
         }
     }
